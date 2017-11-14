@@ -6,7 +6,6 @@ public class StringTest {
 		test.sort();
 	}
 	public void sort() {
-				
 		String a="687254321";
 		char[] chrCharArray=a.toCharArray();
 		int temp = 0;
