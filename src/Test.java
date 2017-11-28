@@ -1,21 +1,23 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
 	public static void main(String[] args) {
-		List<Object> list = getValue(2, 9);
+		List<Object> list = getValue(2, 100);
 		for (Object object : list) {
 			System.out.println(object);
 		}
 	}
 	
 	public static List<Object> getValue(int type,int... leng){
+		String[] arrStr = { "!","@","#","$","%","^","&","*","(",")"};
 		List<Object> list = new ArrayList();
 		String a = "";//最长
 		String b = "";//最短
 		String c = " ";//空格
 		String d = "";//空白
-		String e = "!@#$%^&*()";//特殊字符数组
+		String e = "";//特殊字符数组
 		String fStr = "abcd";//非格式数据-字符
 		int fNum = 12345;//非格式数据-数字
 		if(leng.length > 1){
@@ -25,6 +27,14 @@ public class Test {
 			for (int i = 0; i < leng[0] - 1; i++) {
 				b += "b";
 			}
+			int j = 0;
+			for (int i = 0; i < leng[1]; i++) {
+				j = i;
+				if(i >= arrStr.length){
+					j = i % arrStr.length;
+				}
+				e += arrStr[j];
+			}
 		}
 		if (leng.length == 1){
 			for (int i = 0; i <= leng[0]; i++) {
@@ -32,6 +42,14 @@ public class Test {
 			}
 			for (int i = 0; i < leng[0] - 1; i++) {
 				b += "b";
+			}
+			int j = 0;
+			for (int i = 0; i < leng[0]; i++) {
+				j = i;
+				if(i >= arrStr.length){
+					j = i % arrStr.length;
+				}
+				e += arrStr[j];
 			}
 		}
 		list.add(a);
@@ -46,5 +64,4 @@ public class Test {
 		}
 		return list;
 	}
-	
 }
